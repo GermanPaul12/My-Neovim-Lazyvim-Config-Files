@@ -22,9 +22,23 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({})
-	    lspconfig.ruff.setup({})
-	    lspconfig.rust_analyzer.setup({})
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+            lspconfig.pyright.setup {
+                settings = {
+                    pyright = {
+                    -- Using Ruff's import organizer
+                        disableOrganizeImports = true,
+                                },
+                    python = {
+                        analysis = {
+                        -- Ignore all files for analysis to exclusively use Ruff for linting
+                        ignore = { '*' },
+                            },
+                    },
+                },
+            }
+	        lspconfig.ruff.setup({})
+	        lspconfig.rust_analyzer.setup({})
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 	    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
 	    vim.keymap.set({'n'}, '<leader>ca', vim.lsp.buf.code_action, {})
         end
