@@ -1,9 +1,15 @@
 return {
-    "lervag/vimtex",
-    ft = "tex",         -- Load VimTeX for TeX files
-    lazy = true,        -- Enable lazy loading
-    config = function() -- Use `config` instead of `init` for setting up
-        vim.g.vimtex_view_method = "zathura"
-        vim.g.vimtex_compiler_method = "latexmk"
-    end,
+  "lervag/vimtex",
+  lazy = false, -- lazy-loading will disable inverse search
+  config = function()
+    vim.g.vimtex_view_method = "sioyek"
+    vim.g.vimtex_compiler_latexmk = {
+      aux_dir = "./.latexmk/aux",
+      out_dir = "./.latexmk/out",
+    }
+  end,
+  keys = {
+    { "<localLeader>l", "", desc = "+vimtex" },
+  },
 }
+

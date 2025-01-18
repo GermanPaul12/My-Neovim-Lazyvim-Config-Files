@@ -8,7 +8,7 @@ return {
             ensure_installed = {
               "c", "lua", "vim", "javascript", "html", "python",
               "go", "rust", "dockerfile", "css", "csv", "bibtex",
-              "bash", "typst", "latex" },
+              "bash", "typst", "latex", "markdown" },
             highlight = { enable = true },
             indent = { enable = true }
         })
